@@ -1,8 +1,10 @@
 package com.bridgelabz;
+
 class Node {
     int data;
     Node left, right;
 }
+
 public class BinaryTreeLogic {
     public Node insert(Node node, int data) {
         if (node == null) {
@@ -39,6 +41,22 @@ public class BinaryTreeLogic {
                 inorderTraversal(node.right);
 
         }
+    }
+
+    public boolean searchNode(Node node, int data) {
+        if (node == null) return false;
+        boolean isPresent = false;
+        while (node != null) {
+            if (data < node.data) {
+                node = node.left;
+            } else if (data > node.data) {
+                node = node.right;
+            } else {
+                isPresent = true;
+                break;
+            }
+        }
+        return isPresent;
     }
 }
 
